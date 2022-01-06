@@ -1,0 +1,23 @@
+%YAML:1.0
+---
+track_thresh : 0.5
+#  {0,1} - confidence threshold for detections to be included in tracking
+# 
+high_thresh : 0.4
+#  {0,1} - confidence threshold for high confidence detections
+# 
+match_thresh : 0.9
+#  {0,1} - matching threshold for tracking - higher values indicates minimum ID switches, lower values may have ID switching
+# 
+frame_rate : 20
+#  frame-rate for tracking
+# 
+track_buffer : 120
+#  number of frames for which a track should be kept in memory if the track is lost.
+# 
+NMS_thresh : 0.7
+#  {0,1} Non-Maximal-Suppression threshold for the detector - to avoid multiple detections for a single person
+# 
+bbox_conf_thresh : 0.2
+#  {0,1} confidence threshold for low confidence detections
+# 
