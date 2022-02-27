@@ -5,8 +5,8 @@ Please follow the instructions given below on any of the Nvidia Jetson embedded 
 
 ## Step 1. Clone the repository 
 -     sudo apt-get install git-lfs
-      git clone -b JetPack-4.4.1 --single-branch 
-      cd PAL-USB
+      git clone -b JetPack-4.4.1 --single-branch https://github.com/DreamVu/3D-People-Detection-Tracking.git
+      cd 3D-People-Detection-Tracking
       git lfs pull
       
 ## Step 2. Installing Dependencies 
@@ -44,7 +44,7 @@ The data files are delivered along with the purchase of the PAL USB camera. In c
 
 
 ## Documentation 
-For rest of the evaluation of the PAL-USB SDK, please read the [Evaluation Manual](https://docs.google.com/document/d/e/2PACX-1vT3rc_7S621PJHJ6QuV-rR2CyXbMvPBZztaDoiPnkT_g18Gz327OOA91pf11JMkqIeK0smel81rNbNg/pub)
+For rest of the evaluation of the PAL-USB SDK, please read the [Evaluation Manual](https://docs.google.com/document/d/e/2PACX-1vSHmm4eHTxWZ0G1LhdJgI0NANms3ProJZyiBbBw7GNlKyMVQY6Wuw4FEvB9tUM0FuCK74i0AyEv25WG/pub)
 
 ## Support 
 If you need help or more informations check our [Help Center](https://support.dreamvu.com/portal/en/home) or join our [Community](https://support.dreamvu.com/portal/en/community/dreamvu-inc) or you can email us directly at support@dreamvu.com 
