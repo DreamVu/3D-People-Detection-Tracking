@@ -1,6 +1,6 @@
 /*
 
-CODE SAMPLE # 004: People Following
+CODE SAMPLE # 002: People Following
 This code will grab the left panorama with track ids and 3D location and demonstrate how it follow a selected id
 
 
