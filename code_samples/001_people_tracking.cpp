@@ -1,26 +1,25 @@
 /*
 
-CODE SAMPLE # 004: Tracking panorama
+CODE SAMPLE # 001: Tracking panorama
 This code will grab the left panorama with bounding boxes, IDs and 3D locations overlayed on it and would be displayed in a window using opencv
 
 
 >>>>>> Compile this code using the following command....
 
 
- g++ 001_object_tracking.cpp ../lib/libPAL.so  ../lib/libPAL_DE.so ../lib/libPAL_DEPTH_128.so  ../lib/libPAL_DEPTH_HQ.so ../lib/libPAL_Track.so /usr/src/tensorrt/bin/common/logger.o `pkg-config --libs --cflags opencv python3 libusb-1.0`   -O3  -o 001_object_tracking.out -I../include/ -lv4l2 -lpthread -lcudart -L/usr/local/cuda/lib64 -lnvinfer -I../../monolith/inc -w -std=c++11
-
+ g++ 001_people_tracking.cpp ../lib/libPAL.so  ../lib/libPAL_DE.so ../lib/libPAL_DEPTH_128.so  ../lib/libPAL_DEPTH_HQ.so ../lib/libPAL_Track.so /usr/src/tensorrt/bin/common/logger.o `pkg-config --libs --cflags opencv python3 libusb-1.0`   -O3  -o 001_people_tracking.out -I../include/ -lv4l2 -lpthread -lcudart -L/usr/local/cuda/lib64 -lnvinfer -I../../monolith/inc -w -std=c++11
 
 
 
 >>>>>> Execute the binary file by typing the following command...
 
 
-./001_object_tracking.out
+./001_people_tracking.out
 
 
 >>>>>> KEYBOARD CONTROLS:
 
-       ESC key closes the window
+ESC key closes the window
        
 
 */
@@ -67,8 +66,6 @@ int main( int argc, char** argv )
     int key = ' ';
     
     printf("Press ESC to close the window.\n");
-
-	printf("The image resolution is .... %dx%d\n", width, height);
    
     Mat output = cv::Mat::zeros(height, width, CV_8UC3);
     
@@ -79,7 +76,6 @@ int main( int argc, char** argv )
 
     while(key != 27)
     {
-        //START_TIMER();
         PAL::Data::TrackingResults data;
 
         data = PAL::GrabTrackingData();
@@ -91,9 +87,6 @@ int main( int argc, char** argv )
         
         //Wait for the keypress - with a timeout of 1 ms
         key = waitKey(1) & 255;
-        //LOG(ITERATION);
-        //DISPLAY_LOG();
-
     }
 
     printf("exiting the application\n");
