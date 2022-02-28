@@ -1,26 +1,24 @@
 /*
 
-CODE SAMPLE # 004: Laser scan panorama
-This code will grab the left panorama with laser scan overlayed on it and would be displayed in a window using opencv
+CODE SAMPLE # 004: People Following
+This code will grab the left panorama with track ids and 3D location and demonstrate how it follow a selected id
 
 
 >>>>>> Compile this code using the following command....
 
 
-g++ 004_laser_scan.cpp ../lib/libPAL.so ../lib/libPAL_DE.so ../lib/libPAL_SSD.so ../lib/libPAL_DEPTH.so /usr/src/tensorrt/bin/common/logger.o `pkg-config --libs --cflags opencv`   -O3  -o 004_laser_scan.out -I../include/ -lv4l2 -lpthread -lcudart -L/usr/local/cuda/lib64 -lnvinfer
-
-
+g++ 002_people_following.cpp ../lib/libPAL.so  ../lib/libPAL_DE.so ../lib/libPAL_DEPTH_128.so  ../lib/libPAL_DEPTH_HQ.so ../lib/libPAL_Track.so /usr/src/tensorrt/bin/common/logger.o `pkg-config --libs --cflags opencv python3 libusb-1.0`   -O3  -o 002_people_following.out -I../include/ -lv4l2 -lpthread -lcudart -L/usr/local/cuda/lib64 -lnvinfer -I../../monolith/inc -w -std=c++11
 
 
 >>>>>> Execute the binary file by typing the following command...
 
 
-./004_laser_scan.out
+./002_people_following.out
 
 
 >>>>>> KEYBOARD CONTROLS:
 
-       ESC key closes the window
+ESC key closes the window
        
 
 */
@@ -93,8 +91,6 @@ int main( int argc, char** argv )
     int key = ' ';
     
     printf("Press ESC to close the window.\n");
-
-	printf("The image resolution is .... %dx%d\n", width, height);
    
     Mat output = cv::Mat::zeros(height, width, CV_8UC3);
     
@@ -105,7 +101,6 @@ int main( int argc, char** argv )
 
     while(key != 27)
     {
-        //START_TIMER();
         PAL::Data::TrackingResults data;
 
         data = PAL::GrabTrackingData();
@@ -140,8 +135,6 @@ int main( int argc, char** argv )
             }
                 
         }
-        //LOG(ITERATION);
-        //DISPLAY_LOG();
 
     }
 
